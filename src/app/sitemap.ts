@@ -9,6 +9,7 @@ import { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 import { getAllTools } from '@/config/tools';
 import { getAllArticles } from '@/config/articles';
+import { TOOL_CATEGORIES } from '@/types/tool';
 
 // Required for static export
 export const dynamic = 'force-static';
@@ -20,6 +21,7 @@ const PRIORITY = {
   home: 1.0,
   tools: 0.9,
   toolPage: 0.8,
+  categoryPage: 0.75,
   articles: 0.8,
   articlePage: 0.7,
   static: 0.5,
@@ -80,6 +82,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Tool category pages
+  for (const category of TOOL_CATEGORIES) {
+    entries.push({
+      url: `${siteConfig.url}/tools/category/${category}`,
+      lastModified,
+      changeFrequency: CHANGE_FREQUENCY.toolPage,
+      priority: PRIORITY.categoryPage,
+    });
+  }
+
   // Article pages
   for (const article of getAllArticles()) {
     entries.push({
@@ -98,5 +110,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
  * Useful for testing and validation
  */
 export function getSitemapUrlCount(): number {
-  return STATIC_PAGES.length + getAllTools().length + getAllArticles().length;
+  return (
+    STATIC_PAGES.length +
+    getAllTools().length +
+    TOOL_CATEGORIES.length +
+    getAllArticles().length
+  );
 }
