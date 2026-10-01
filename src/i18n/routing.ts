@@ -8,6 +8,6 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale,
 
-  // Always use locale prefix in URL
-  localePrefix: 'always',
+  // 中文单语站点：URL 不带语言前缀
+  localePrefix: 'never',
 });

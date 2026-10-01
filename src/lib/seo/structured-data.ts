@@ -164,7 +164,7 @@ export function generateSoftwareApplicationSchema(
     '@type': 'SoftwareApplication',
     name: content.title,
     description: content.metaDescription,
-    url: `${siteConfig.url}/${locale}/tools/${tool.slug}`,
+    url: `${siteConfig.url}/tools/${tool.slug}`,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Windows, macOS, Linux, iOS, Android, Chrome OS',
     offers: {
@@ -217,7 +217,7 @@ export function generateHowToSchema(
       position: step.step,
       name: step.title,
       text: step.description,
-      url: `${siteConfig.url}/${locale}/tools/${tool.slug}#step-${step.step}`,
+      url: `${siteConfig.url}/tools/${tool.slug}#step-${step.step}`,
     })),
   };
 }
@@ -230,21 +230,8 @@ export function generateWebPageSchema(
   content: ToolContent,
   locale: Locale
 ): WebPageSchema {
-  const languageMap: Record<Locale, string> = {
-    en: 'en-US',
-    ja: 'ja-JP',
-    ko: 'ko-KR',
-    es: 'es-ES',
-    fr: 'fr-FR',
-    de: 'de-DE',
+  const languageMap: Record<string, string> = {
     zh: 'zh-CN',
-    'zh-TW': 'zh-TW',
-    pt: 'pt-BR',
-    ar: 'ar-AR',
-    it: 'it-IT',
-    id: 'id-ID',
-    vi: 'vi-VN',
-    ro: 'ro-RO',
   };
 
   return {
@@ -252,8 +239,8 @@ export function generateWebPageSchema(
     '@type': 'WebPage',
     name: content.title,
     description: content.metaDescription,
-    url: `${siteConfig.url}/${locale}/tools/${tool.slug}`,
-    inLanguage: languageMap[locale] || 'en-US',
+    url: `${siteConfig.url}/tools/${tool.slug}`,
+    inLanguage: languageMap[locale] || 'zh-CN',
     isPartOf: {
       '@type': 'WebSite',
       name: siteConfig.name,
@@ -296,13 +283,13 @@ export function generateWebSiteSchema(locale: Locale): WebSiteSchema {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: siteConfig.name,
-    url: `${siteConfig.url}/${locale}`,
+    url: `${siteConfig.url}/`,
     description: siteConfig.description,
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${siteConfig.url}/${locale}/tools?q={search_term_string}`,
+        urlTemplate: `${siteConfig.url}/tools?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -337,7 +324,7 @@ export function generateBreadcrumbSchema(
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `${siteConfig.url}/${locale}${item.path}`,
+      item: `${siteConfig.url}${item.path || '/'}`,
     })),
   };
 }
@@ -380,6 +367,79 @@ export function generateToolPageStructuredData(
     faqPage,
     webPage,
     breadcrumb,
+  };
+}
+
+/**
+ * Article schema for article pages
+ * @see https://schema.org/Article
+ */
+export interface ArticleSchema {
+  '@context': 'https://schema.org';
+  '@type': 'Article';
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified: string;
+  inLanguage: string;
+  author: {
+    '@type': 'Organization';
+    name: string;
+    url: string;
+  };
+  publisher: {
+    '@type': 'Organization';
+    name: string;
+    url: string;
+  };
+  mainEntityOfPage: {
+    '@type': 'WebPage';
+    '@id': string;
+  };
+  keywords?: string;
+  articleSection?: string;
+}
+
+/**
+ * Generate Article schema for an article page
+ */
+export function generateArticleSchema(article: {
+  slug: string;
+  title: string;
+  description: string;
+  keywords: string[];
+  publishedAt: string;
+  updatedAt: string;
+  categoryName: string;
+}): ArticleSchema {
+  const url = `${siteConfig.url}/articles/${article.slug}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    url,
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt,
+    inLanguage: 'zh-CN',
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    keywords: article.keywords.join(', '),
+    articleSection: article.categoryName,
   };
 }
 

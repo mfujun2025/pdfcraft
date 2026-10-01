@@ -1,12 +1,14 @@
 /**
- * i18n Configuration for next-intl
- * Defines supported locales and routing configuration
+ * i18n Configuration
+ * 本站已收敛为中文单语站点（pdf.中国），保留 next-intl 运行时以保证
+ * useTranslations / NextIntlClientProvider 等既有组件零改动。
+ * URL 不再带语言前缀，页面直接位于站点根路径下。
  */
 
-export const locales = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'zh-TW', 'pt', 'ar', 'it', 'id', 'vi', 'ro'] as const;
+export const locales = ['zh'] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'zh';
 
 export const localeConfig: Record<Locale, {
   name: string;
@@ -14,20 +16,7 @@ export const localeConfig: Record<Locale, {
   direction: 'ltr' | 'rtl';
   dateFormat: string;
 }> = {
-  en: { name: 'English', nativeName: 'English', direction: 'ltr', dateFormat: 'MM/DD/YYYY' },
-  ja: { name: 'Japanese', nativeName: '日本語', direction: 'ltr', dateFormat: 'YYYY/MM/DD' },
-  ko: { name: 'Korean', nativeName: '한국어', direction: 'ltr', dateFormat: 'YYYY.MM.DD' },
-  es: { name: 'Spanish', nativeName: 'Español', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  fr: { name: 'French', nativeName: 'Français', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  de: { name: 'German', nativeName: 'Deutsch', direction: 'ltr', dateFormat: 'DD.MM.YYYY' },
   zh: { name: 'Chinese (Simplified)', nativeName: '简体中文', direction: 'ltr', dateFormat: 'YYYY-MM-DD' },
-  'zh-TW': { name: 'Chinese (Traditional)', nativeName: '繁體中文', direction: 'ltr', dateFormat: 'YYYY/MM/DD' },
-  pt: { name: 'Portuguese', nativeName: 'Português', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  ar: { name: 'Arabic', nativeName: 'العربية', direction: 'rtl', dateFormat: 'DD/MM/YYYY' },
-  it: { name: 'Italian', nativeName: 'Italiano', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  id: { name: 'Indonesian', nativeName: 'Bahasa Indonesia', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  vi: { name: 'Vietnamese', nativeName: 'Tiếng Việt', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  ro: { name: 'Romanian', nativeName: 'Română', direction: 'ltr', dateFormat: 'DD.MM.YYYY' },
 };
 
 /**
@@ -58,6 +47,7 @@ export function getLocaleFromPath(path: string): Locale | null {
 
 /**
  * Generate localized path
+ * 单语站点下为恒等映射，保留函数以兼容既有调用与测试。
  */
 export function getLocalizedPath(path: string, locale: Locale): string {
   // Remove any existing locale prefix (must be followed by / or end of string)

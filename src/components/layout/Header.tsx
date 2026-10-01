@@ -109,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
   }, [searchResults, selectedIndex]);
 
   const navigateToTool = useCallback((slug: string) => {
-    router.push(`/${locale}/tools/${slug}`);
+    router.push(`/tools/${slug}`);
     setIsSearchOpen(false);
     setSearchQuery('');
     setSearchResults([]);
@@ -156,11 +156,11 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
   };
 
   const navItems = [
-    { href: `/${locale}`, label: t('navigation.home') },
-    { href: `/${locale}/tools`, label: t('navigation.tools') },
-    { href: `/${locale}/workflow`, label: t('navigation.workflow') || 'Workflow' },
-    { href: `/${locale}/about`, label: t('navigation.about') },
-    { href: `/${locale}/faq`, label: t('navigation.faq') },
+    { href: `/`, label: t('navigation.home') },
+    { href: `/tools`, label: t('navigation.tools') },
+    { href: `/workflow`, label: t('navigation.workflow') || 'Workflow' },
+    { href: `/about`, label: t('navigation.about') },
+    { href: `/faq`, label: t('navigation.faq') },
   ];
 
   return (
@@ -176,7 +176,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
           {/* Logo and Brand */}
           <div className="flex flex-1 items-center gap-2">
             <Link
-              href={`/${locale}`}
+              href={`/`}
               className="group flex items-center gap-2.5 text-xl font-bold text-[hsl(var(--color-foreground))] hover:opacity-90 transition-opacity"
               aria-label={`${t('brand')} - ${t('navigation.home')}`}
             >
@@ -318,7 +318,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
             {/* GitHub Repository Link */}
             <a
-              href="https://github.com/PDFCraftTool/pdfcraft"
+              href="https://github.com/mfujun2025/pdfcraft"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center justify-center h-9 w-9 rounded-lg text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))/0.5] transition-all"
@@ -329,9 +329,6 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
 
             {/* Theme Toggle */}
             <ThemeToggle />
-
-            {/* Language Selector placeholder */}
-            <div id="language-selector-slot" />
 
             {/* Mobile Menu Toggle */}
             <Button
@@ -375,7 +372,7 @@ export const Header: React.FC<HeaderProps> = ({ locale, showSearch = true }) => 
               {/* GitHub Link in Mobile Menu */}
               <li>
                 <a
-                  href="https://github.com/PDFCraftTool/pdfcraft"
+                  href="https://github.com/mfujun2025/pdfcraft"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 text-base font-medium text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-lg transition-colors"

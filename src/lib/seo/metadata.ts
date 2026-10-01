@@ -40,27 +40,30 @@ export interface ToolMetadataOptions extends BaseMetadataOptions {
 
 /**
  * Generate the canonical URL for a page
+ * 中文单语站点：URL 不带语言前缀
  */
 export function getCanonicalUrl(locale: Locale, path: string = ''): string {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const basePath = getBasePath().replace(/\/$/, '');
-  return `${siteConfig.url}${basePath}/${locale}${cleanPath}`;
+  return `${siteConfig.url}${basePath}${cleanPath === '/' ? '/' : cleanPath}`;
 }
 
 /**
  * Generate alternate language URLs for hreflang tags
+ * 单语站点下所有语言（仅 zh）与 x-default 指向同一 URL
  */
 export function getAlternateUrls(path: string = ''): Record<string, string> {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const alternates: Record<string, string> = {};
   const basePath = getBasePath().replace(/\/$/, '');
+  const url = `${siteConfig.url}${basePath}${cleanPath === '/' ? '/' : cleanPath}`;
 
   for (const locale of locales) {
-    alternates[locale] = `${siteConfig.url}${basePath}/${locale}${cleanPath}`;
+    alternates[locale] = url;
   }
 
-  // Add x-default pointing to English
-  alternates['x-default'] = `${siteConfig.url}${basePath}/en${cleanPath}`;
+  // Add x-default pointing to the same page
+  alternates['x-default'] = url;
 
   return alternates;
 }
@@ -173,7 +176,7 @@ export function generateToolMetadata(options: ToolMetadataOptions): Metadata {
  * Generate metadata for the homepage
  */
 export function generateHomeMetadata(locale: Locale, translations?: { title: string; description: string }): Metadata {
-  const defaultTitle = `${siteConfig.name} - Professional PDF Tools`;
+  const defaultTitle = `${siteConfig.name} - 免费在线 PDF 工具`;
   const defaultDescription = siteConfig.description;
 
   return generateBaseMetadata({
@@ -181,7 +184,7 @@ export function generateHomeMetadata(locale: Locale, translations?: { title: str
     path: '',
     title: translations?.title || defaultTitle,
     description: translations?.description || defaultDescription,
-    keywords: ['PDF tools', 'merge PDF', 'split PDF', 'compress PDF', 'convert PDF', 'free PDF tools', 'online PDF editor'],
+    keywords: ['PDF工具', 'PDF合并', 'PDF拆分', 'PDF压缩', 'PDF转换', '免费PDF工具', '在线PDF编辑器'],
   });
 }
 
@@ -251,26 +254,48 @@ export function generateContactMetadata(locale: Locale, translations?: { title: 
 }
 
 /**
+ * Generate metadata for the articles listing page
+ */
+export function generateArticlesListMetadata(
+  locale: Locale,
+  translations?: { title: string; description: string }
+): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: '/articles',
+    title: translations?.title || 'PDF 实用教程与技巧',
+    description:
+      translations?.description ||
+      'PDF 转换、合并、压缩、编辑、加密的实操教程。每个问题都给可照做的步骤和判断标准，不做空泛科普。',
+    keywords: ['PDF教程', 'PDF技巧', 'PDF使用方法', 'PDF转换教程', 'PDF压缩方法'],
+  });
+}
+
+/**
+ * Generate metadata for an article page
+ */
+export function generateArticleMetadata(
+  locale: Locale,
+  article: { slug: string; seoTitle: string; description: string; keywords: string[] }
+): Metadata {
+  return generateBaseMetadata({
+    locale,
+    path: `/articles/${article.slug}`,
+    title: article.seoTitle,
+    description: article.description,
+    keywords: article.keywords,
+    noIndex: false,
+  });
+}
+
+/**
  * Convert locale to Open Graph locale format
  */
 export function getOpenGraphLocale(locale: Locale): string {
-  const ogLocaleMap: Record<Locale, string> = {
-    en: 'en_US',
-    ja: 'ja_JP',
-    ko: 'ko_KR',
-    es: 'es_ES',
-    fr: 'fr_FR',
-    de: 'de_DE',
+  const ogLocaleMap: Record<string, string> = {
     zh: 'zh_CN',
-    'zh-TW': 'zh_TW',
-    pt: 'pt_BR',
-    ar: 'ar_AR',
-    it: 'it_IT',
-    id: 'id_ID',
-    vi: 'vi_VN',
-    ro: 'ro_RO',
   };
-  return ogLocaleMap[locale] || 'en_US';
+  return ogLocaleMap[locale] || 'zh_CN';
 }
 
 /**

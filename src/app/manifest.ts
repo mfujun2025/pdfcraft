@@ -14,8 +14,9 @@ export const dynamic = 'force-static';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteConfig.name,
-    short_name: 'PDFCraft',
+    short_name: 'pdf.中国',
     description: siteConfig.description,
+    lang: 'zh-CN',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

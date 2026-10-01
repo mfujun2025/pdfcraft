@@ -1,31 +1,29 @@
-'use client';
+import { setRequestLocale } from 'next-intl/server';
+import { type Locale } from '@/lib/i18n/config';
+import HomePageClient from './HomePageClient';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { locales, defaultLocale } from '@/lib/i18n/config';
+export default async function HomePage() {
+  const locale: Locale = 'zh';
 
-// Root page handles client-side redirection based on browser language
-export default function RootPage() {
-  const router = useRouter();
+  // Enable static rendering
+  setRequestLocale(locale);
 
-  useEffect(() => {
-    try {
-      // Get browser language
-      const browserLang = navigator.language;
-      const primaryLang = browserLang.split('-')[0];
+  // Get localized content for tools
+  const { tools } = await import('@/config/tools');
+  const { getToolContent } = await import('@/config/tool-content');
 
-      // Check if the language is supported
-      if ((locales as readonly string[]).includes(primaryLang)) {
-        router.replace(`/${primaryLang}`);
-      } else {
-        router.replace(`/${defaultLocale}`);
-      }
-    } catch (error) {
-      // Fallback to default locale if anything goes wrong
-      router.replace(`/${defaultLocale}`);
+  const localizedToolContent = tools.reduce((acc, tool) => {
+    const content = getToolContent(locale, tool.id);
+    // Use metaDescription for the card description as it's short and summary-like
+    // Use title from the content
+    if (content) {
+      acc[tool.id] = {
+        title: content.title,
+        description: content.metaDescription
+      };
     }
-  }, [router]);
+    return acc;
+  }, {} as Record<string, { title: string; description: string }>);
 
-  // Render nothing while redirecting
-  return null;
+  return <HomePageClient locale={locale as Locale} localizedToolContent={localizedToolContent} />;
 }
