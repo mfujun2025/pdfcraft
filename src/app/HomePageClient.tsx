@@ -6,6 +6,7 @@ import { ArrowRight, Zap, Wrench, Lock, Sparkles, Edit, FileImage, FolderOpen, S
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ToolGrid } from '@/components/tools/ToolGrid';
+import { PromoBanner } from '@/components/common/PromoBanner';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { getAllTools, getToolsByCategory, getPopularTools } from '@/config/tools';
@@ -159,6 +160,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             </div>
           </div>
         </section>
+
+        <PromoBanner />
 
         {/* Popular Tools Section */}
         <section className="py-16 bg-[hsl(var(--color-muted)/0.5)]" aria-labelledby="popular-tools-heading">
