@@ -53,6 +53,7 @@ const STATIC_PAGES = [
   { path: '/terms', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/cookies', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
   { path: '/contact', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
+  { path: '/sitemap', priority: PRIORITY.static, changeFrequency: CHANGE_FREQUENCY.static },
 ];
 
 /**

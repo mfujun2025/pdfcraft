@@ -7,12 +7,16 @@ import { articlesBatch1 } from './content/batch-1';
 import { articlesBatch2 } from './content/batch-2';
 import { articlesBatch3 } from './content/batch-3';
 import { articlesBatch4 } from './content/batch-4';
+import { articlesBatch5 } from './content/batch-5';
+import { articlesBatch6 } from './content/batch-6';
 
 export const articles: Article[] = [
   ...articlesBatch1,
   ...articlesBatch2,
   ...articlesBatch3,
   ...articlesBatch4,
+  ...articlesBatch5,
+  ...articlesBatch6,
 ].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 
 export function getAllArticles(): Article[] {

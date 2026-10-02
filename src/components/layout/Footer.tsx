@@ -23,6 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
     { href: `/faq`, label: t('navigation.faq') },
     { href: `/privacy`, label: t('navigation.privacy') },
     { href: `/contact`, label: t('navigation.contact') },
+    { href: `/sitemap`, label: '网站地图' },
   ];
 
   return (
