@@ -12,7 +12,7 @@ export const articlesBatch7: Article[] = [
     keywords: ['PDF是什么', 'PDF入门教程', 'PDF和Word的区别', '什么时候用PDF', 'PDF使用场景', 'PDF新手教程'],
     category: 'office',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-08',
     readingMinutes: 6,
     tools: [
       { slug: 'word-to-pdf', label: 'Word 转 PDF' },
@@ -91,7 +91,7 @@ export const articlesBatch7: Article[] = [
       {
         question: 'PDF 文件太大发不出去怎么办？',
         answer:
-          '扫描件和图片多的 PDF 体积容易超过邮箱或聊天工具的限制，用 PDF 压缩工具把图片质量降到合适档位即可，文字内容不受影响。一般压缩后体积能缩小一半以上，清晰度仍够阅读和打印。',
+          '扫描件和图片多的 PDF 体积容易超过邮箱或聊天工具的限制，用 PDF 压缩工具把图片质量降到合适档位即可，文字内容不受影响。多数文档压缩后体积能缩小一半左右，清晰度仍够阅读和打印。',
       },
       {
         question: '手机上能处理 PDF 吗？',
@@ -121,7 +121,7 @@ export const articlesBatch7: Article[] = [
     keywords: ['PDF修改文字', 'PDF编辑教程', 'PDF怎么改字', 'PDF转Word修改', 'PDF字体乱码', '在线PDF编辑'],
     category: 'edit',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-08',
     readingMinutes: 6,
     tools: [
       { slug: 'edit-pdf', label: 'PDF 编辑' },
@@ -227,7 +227,7 @@ export const articlesBatch7: Article[] = [
     keywords: ['PDF批注教程', 'PDF高亮标记', '审合同批注', 'PDF批注导出', '删除PDF批注', 'PDF批注打印'],
     category: 'edit',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-08',
     readingMinutes: 7,
     tools: [
       { slug: 'pdf-reader', label: 'PDF 阅读器' },
@@ -343,7 +343,7 @@ export const articlesBatch7: Article[] = [
     keywords: ['PDF去水印', '去除PDF水印', 'PDF水印移除', '批量去水印', 'PDF水印扁平化', '去水印工具'],
     category: 'edit',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-08',
     readingMinutes: 6,
     tools: [
       { slug: 'batch-watermark-remover', label: '批量去水印' },
@@ -401,7 +401,7 @@ export const articlesBatch7: Article[] = [
       {
         heading: '去不干净时的兜底办法',
         paragraphs: [
-          '水印只在页边距或页脚、正文范围规整时，裁剪是最干脆的兜底：把带水印的边缘直接裁掉，文件立刻干净。代价是页面尺寸变了，交付前确认对方不介意，必要时用页面尺寸调整工具把裁剪后的页面缩放回标准尺寸。',
+          '水印只在页边距或页脚、正文范围规整时，裁剪是最干脆的兜底：把带水印的边缘直接裁掉，文件立刻干净。代价是页面尺寸变了，交付前确认对方不介意，必要时用页面尺寸调整工具把裁剪后的页面等比缩放回 A4 等标准尺寸。',
           '水印落在正文中间、裁不得时，用查找并涂黑的思路处理：定位水印文字并用不透明色块覆盖，或用白色块盖住。这不会删除水印对象本身，只让它不可见，对「看着干净」的目标来说足够；但如果文件之后还要被编辑或提取内容，遮挡方案要重新评估。',
         ],
       },
@@ -442,7 +442,7 @@ export const articlesBatch7: Article[] = [
       {
         question: '去水印后文件属性里会留下痕迹吗？',
         answer:
-          '移除的是页面内容，处理记录一般不写入文档属性，但修改时间等元数据会更新。在意元数据泄露的场合，可以顺手用元数据清理工具过一遍再发出。',
+          '移除的是页面内容，处理记录一般不写入文档属性，但修改时间等元数据会更新。在意元数据泄露的场合，可以顺手用移除元数据工具过一遍再发出。',
       },
     ],
   },

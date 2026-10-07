@@ -12,7 +12,7 @@ export const articlesBatch9: Article[] = [
     keywords: ['发票PDF合并打印', '发票拼一张A4', '报销发票打印', 'PDF多页合一', '发票打印大小', '发票整理打印'],
     category: 'office',
     publishedAt: '2026-10-06',
-    updatedAt: '2026-10-06',
+    updatedAt: '2026-10-08',
     readingMinutes: 6,
     tools: [
       { slug: 'merge-pdf', label: 'PDF 合并' },
@@ -32,7 +32,7 @@ export const articlesBatch9: Article[] = [
       {
         heading: '第一步：把发票页面尺寸统一，拼出来才整齐',
         paragraphs: [
-          '电子发票最常见的尺寸是 A4 或 240×140 毫米的票面格式，火车票、出租车票又各不相同。直接混着拼版，页面上会留出大片白边，或者小的票被拉得模糊。先看一眼所有发票的页面大小，尺寸一致的归一组，尺寸不一的先统一。',
+          '电子发票最常见的尺寸是 A4 或 240×140 毫米的票面格式，现在全面推广的数电票版式尺寸不固定，火车票、出租车票又各不相同。直接混着拼版，页面上会留出大片白边，或者小的票被拉得模糊。先看一眼所有发票的页面大小，尺寸一致的归一组，尺寸不一的先统一。',
         ],
         list: [
           '尺寸统一的（比如都是同一种电子发票），直接进入拼版，不用预处理。',
@@ -113,7 +113,7 @@ export const articlesBatch9: Article[] = [
     keywords: ['PDF小册子打印', '骑马钉排版', 'PDF正反面打印', '小册子页面顺序', '折页装订', 'A4对折手册'],
     category: 'office',
     publishedAt: '2026-10-06',
-    updatedAt: '2026-10-06',
+    updatedAt: '2026-10-08',
     readingMinutes: 7,
     tools: [
       { slug: 'pdf-booklet', label: '小册子拼版' },
@@ -126,7 +126,7 @@ export const articlesBatch9: Article[] = [
         heading: '小册子的排版逻辑：为什么直接双面打印是错的',
         paragraphs: [
           '拿一份 8 页的 PDF 直接双面打印再对折，你会得到一本页序全乱的册子：第 2 页挨着第 7 页，第 3 页挨着第 6 页。原因很简单——骑马钉小册子的纸张是一整张 A3（或两张 A4 对折套起来），第 1 页和第 8 页印在同一面的左右，第 2 页和第 7 页印在它们背面。直接顺序打印只是把第 1、2 页印在一张纸的正反面，折出来页序全错。',
-          '所以做小册子的核心动作只有一步：**重排页面顺序**，把「阅读顺序」变成「印张顺序」。这一步叫拼版，工具可以自动完成，人只需要搞清楚自己的册子属于哪种规格。',
+          '所以做小册子的核心动作只有一步：重排页面顺序，把「阅读顺序」变成「印张顺序」。这一步叫拼版，工具可以自动完成，人只需要搞清楚自己的册子属于哪种规格。',
         ],
         note: '一句话记住原理：小册子里每一张纸的正反面，印的都是「最外层」和「最内层」互相配对的页面。',
       },
@@ -186,7 +186,7 @@ export const articlesBatch9: Article[] = [
       {
         question: 'PDF 页数不是 4 的倍数怎么办？',
         answer:
-          '补空白页到最近的 4 的倍数。多数拼版工具支持自动补页，也可以先用插入空白页功能自己控制位置，一般补在最后一页后面。页数含封面封底一起算。',
+          '补空白页到最近的 4 的倍数。多数拼版工具支持自动补页，也可以先用添加空白页工具自己控制位置，一般补在最后一页后面。页数含封面封底一起算。',
       },
       {
         question: '小册子页数太多，一张纸折不动怎么办？',
@@ -221,7 +221,7 @@ export const articlesBatch9: Article[] = [
     keywords: ['PDF打印不出来', 'PDF打印空白', 'PDF无法打印', 'PDF打印丢字', '打印机打印PDF没反应', 'PDF打印排查'],
     category: 'office',
     publishedAt: '2026-10-06',
-    updatedAt: '2026-10-06',
+    updatedAt: '2026-10-08',
     readingMinutes: 7,
     tools: [
       { slug: 'decrypt-pdf', label: '解密 PDF' },
@@ -321,7 +321,7 @@ export const articlesBatch9: Article[] = [
     keywords: ['PDF字体转曲', '印刷转曲', '文字转轮廓', 'PDF嵌入字体', '印刷字体缺失', '转曲注意事项'],
     category: 'optimize',
     publishedAt: '2026-10-06',
-    updatedAt: '2026-10-06',
+    updatedAt: '2026-10-08',
     readingMinutes: 6,
     tools: [
       { slug: 'font-to-outline', label: '字体转曲' },
