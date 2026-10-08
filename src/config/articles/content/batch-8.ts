@@ -236,7 +236,7 @@ export const articlesBatch8: Article[] = [
     keywords: ['PDF阅读器推荐', 'PDF阅读器怎么选', '手机看PDF', '电子墨水屏PDF', 'PDF夜间模式', '在线PDF阅读'],
     category: 'office',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-09',
     readingMinutes: 6,
     tools: [
       { slug: 'pdf-reader', label: '在线 PDF 阅读器' },
@@ -338,7 +338,7 @@ export const articlesBatch8: Article[] = [
     keywords: ['PDF常用操作', 'PDF速查表', 'PDF合并拆分', 'PDF压缩', 'PDF签名', 'PDF工具推荐'],
     category: 'office',
     publishedAt: '2026-10-04',
-    updatedAt: '2026-10-04',
+    updatedAt: '2026-10-09',
     readingMinutes: 6,
     tools: [
       { slug: 'merge-pdf', label: '合并 PDF' },
