@@ -11,7 +11,7 @@ export const articlesBatch2: Article[] = [
     keywords: ['PDF合并顺序', '多份PDF合并', 'PDF串页', 'PDF交叉合并', 'PDF网格拼接', '合并PDF排序'],
     category: 'organize',
     publishedAt: '2026-08-18',
-    updatedAt: '2026-10-01',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'merge-pdf', label: 'PDF 合并' },
@@ -113,7 +113,7 @@ export const articlesBatch2: Article[] = [
     keywords: ['PDF拆分', 'PDF按页数拆分', 'PDF按书签拆分', 'PDF提取页面', 'PDF均分份数', 'PDF页码范围'],
     category: 'organize',
     publishedAt: '2026-08-22',
-    updatedAt: '2026-09-30',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'split-pdf', label: 'PDF 拆分' },
@@ -217,7 +217,7 @@ export const articlesBatch2: Article[] = [
     keywords: ['PDF删除页面', 'PDF删除空白页', 'PDF批量删页', 'PDF提取页面', 'PDF页码序号'],
     category: 'organize',
     publishedAt: '2026-08-26',
-    updatedAt: '2026-10-01',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'delete-pages', label: '删除 PDF 页面' },
@@ -318,7 +318,7 @@ export const articlesBatch2: Article[] = [
     keywords: ['PDF重排页面', 'PDF倒序', 'PDF旋转', 'PDF插入空白页', 'PDF页面整理', 'PDF顺序错乱'],
     category: 'organize',
     publishedAt: '2026-08-30',
-    updatedAt: '2026-09-30',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'organize-pdf', label: 'PDF 页面整理' },
@@ -417,7 +417,7 @@ export const articlesBatch2: Article[] = [
     keywords: ['PDF添加书签', 'PDF自动生成书签', 'PDF目录页', 'PDF交互式目录', 'PDF页码偏移'],
     category: 'organize',
     publishedAt: '2026-09-04',
-    updatedAt: '2026-10-01',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'bookmark', label: 'PDF 书签' },

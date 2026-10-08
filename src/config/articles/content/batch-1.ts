@@ -12,7 +12,7 @@ export const articlesBatch1: Article[] = [
     keywords: ['PDF转Word', 'PDF转DOCX', 'PDF转换排版错乱', '扫描件转Word', 'OCR识别'],
     category: 'convert',
     publishedAt: '2026-08-14',
-    updatedAt: '2026-09-30',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'pdf-to-docx', label: 'PDF 转 Word 工具' },
@@ -126,7 +126,7 @@ export const articlesBatch1: Article[] = [
     keywords: ['Word转PDF', 'Word导出PDF', '批量转PDF', 'PDF保真度', 'doc转pdf'],
     category: 'convert',
     publishedAt: '2026-08-21',
-    updatedAt: '2026-09-30',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'word-to-pdf', label: 'Word 转 PDF 工具' },
@@ -241,7 +241,7 @@ export const articlesBatch1: Article[] = [
     keywords: ['图片转PDF', 'JPG转PDF', 'HEIC转PDF', 'PNG合成PDF', '批量图片合并'],
     category: 'convert',
     publishedAt: '2026-08-27',
-    updatedAt: '2026-10-01',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'jpg-to-pdf', label: 'JPG 转 PDF' },
@@ -355,7 +355,7 @@ export const articlesBatch1: Article[] = [
     keywords: ['PDF转图片', 'PDF转JPG', 'PDF转PNG', '导出DPI设置', '批量导出图片'],
     category: 'convert',
     publishedAt: '2026-09-02',
-    updatedAt: '2026-10-01',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'pdf-to-jpg', label: 'PDF 转 JPG' },
@@ -471,7 +471,7 @@ export const articlesBatch1: Article[] = [
     keywords: ['PDF转Excel', 'PDF表格提取', '扫描件表格识别', 'OCR转Excel', '表格数据校对'],
     category: 'convert',
     publishedAt: '2026-09-06',
-    updatedAt: '2026-10-01',
+    updatedAt: '2026-10-09',
     readingMinutes: 4,
     tools: [
       { slug: 'pdf-to-excel', label: 'PDF 转 Excel' },
