@@ -12,6 +12,7 @@ import { articlesBatch6 } from './content/batch-6';
 import { articlesBatch7 } from './content/batch-7';
 import { articlesBatch8 } from './content/batch-8';
 import { articlesBatch9 } from './content/batch-9';
+import { articlesBatch10 } from './content/batch-10';
 
 export const articles: Article[] = [
   ...articlesBatch1,
@@ -23,6 +24,7 @@ export const articles: Article[] = [
   ...articlesBatch7,
   ...articlesBatch8,
   ...articlesBatch9,
+  ...articlesBatch10,
 ].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 
 export function getAllArticles(): Article[] {
