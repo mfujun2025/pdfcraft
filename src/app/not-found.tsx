@@ -1,9 +1,23 @@
 'use client';
 
+import { useEffect } from 'react';
 import { FileQuestion, Home, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
 export default function NotFound() {
+  // 兜底：2026-10-01 改版前 Bing/Google 收录的 /zh/、/en/ 前缀旧链接现在会 404。
+  // GitHub Pages 不支持服务端 301，这里用客户端软跳转把旧前缀剥离到扁平化后的根路径，
+  // 避免用户与搜索引擎爬虫在旧链接上彻底死掉。正解仍是在 Cloudflare 边缘层配置 301。
+  useEffect(() => {
+    const path = window.location.pathname;
+    const search = window.location.search;
+    const m = path.match(/^\/(zh|en)(\/.*)?$/);
+    if (m) {
+      const rest = m[2] || '/';
+      window.location.replace(rest + search);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex items-center justify-center p-4 bg-[hsl(var(--color-background))]">
       <div className="max-w-md w-full text-center space-y-6">
